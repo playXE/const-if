@@ -1,0 +1,10 @@
+[package]
+name = "const-if"
+version = "0.1.0"
+authors = ["playXE <adel.prokurov@protonmail.com>"]
+edition = "2018"
+description = "This crate adds if-else expression into your constant functions"
+keywords = ["const","const-fn","const-if"]
+license = "MIT"
+readme = "README.md"
+[dependencies]
