@@ -1,6 +1,6 @@
 [package]
 name = "const-if"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["playXE <adel.prokurov@protonmail.com>"]
 edition = "2018"
 description = "This crate adds if-else expression into your constant functions"
