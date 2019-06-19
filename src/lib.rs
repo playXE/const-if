@@ -1,5 +1,6 @@
 /// All magic happens there
-macro_rules! hidden_handling_cases {
+#[macro_export]
+macro_rules! __hidden_handling_cases {
     // hide this case from the API
     (else $e: expr) => {$e};
 
@@ -7,7 +8,7 @@ macro_rules! hidden_handling_cases {
         $(elif $cond2: expr => $if_t2:expr;)*
         else $if_false:expr
     ) => {
-        [hidden_handling_cases!($($cond2 => $if_t2; )elif * else $if_false), $if_true][$cond as bool as usize]
+        [__hidden_handling_cases!($($cond2 => $if_t2; )elif * else $if_false), $if_true][$cond as bool as usize]
     };
 }
 
@@ -22,7 +23,7 @@ macro_rules! const_if {
         $(elif $cond2: expr => $if_t2:expr;)*
         else $if_false:expr
     ) => {
-        hidden_handling_cases!($cond => $if_true; $(elif $cond2 => $if_t2;)* else $if_false)
+        __hidden_handling_cases!($cond => $if_true; $(elif $cond2 => $if_t2;)* else $if_false)
     };
 }
 
